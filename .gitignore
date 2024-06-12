@@ -1,6 +1,2 @@
-*.dvi
-*.pdf
-*.log
-*.aux
-*.toc
-*.out
+.swiftpm
+build

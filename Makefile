@@ -1,21 +1,15 @@
-.DEFAULT_GOAL=pdf
+.DEFAULT_GOAL=build
 
-Manual.dvi: Manual.tex
-	@latex Manual.tex
-	@latex Manual.tex
+preview:
+	xcrun docc preview "KnightOS-User-Manual.docc" -o build
+	open http://localhost:8080/documentation/manual
 
-Manual.pdf: Manual.dvi
-	@dvipdfm Manual.dvi
+build: "KnightOS-User-Manual.docc"
 
-view: Manual.dvi
-	@xdvi Manual.dvi
-
-pdf: Manual.pdf
-
-viewpdf: pdf
-	@xdg-open Manual.pdf
+*.docc:
+	xcrun docc build "$@" -o build
 
 clean:
-	@rm -f *.dvi *.pdf *.log *.aux *.toc *.out
+	@rm -f build
 
-.PHONY: pdf view clean
+.PHONY: preview build clean
