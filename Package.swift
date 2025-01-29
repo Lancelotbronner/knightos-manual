@@ -4,7 +4,5 @@ import PackageDescription
 
 let package = Package(
 	name: "manual",
-	targets: [
-		.target(name: "manual", path: "."),
-	]
+	targets: []
 )
